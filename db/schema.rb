@@ -1250,7 +1250,8 @@ ActiveRecord::Schema[8.1].define(version: 2026_03_11_142348) do
     t.datetime "updated_at", null: false
     t.string "uri"
     t.index ["object_type", "object_id"], name: "index_tagged_objects_on_object"
-    t.index ["status_id"], name: "index_tagged_objects_on_status_id"
+    t.index ["status_id", "object_type", "object_id"], name: "idx_on_status_id_object_type_object_id_d6ebe374bd", unique: true, where: "((object_type IS NOT NULL) AND (object_id IS NOT NULL))"
+    t.index ["status_id", "uri"], name: "index_tagged_objects_on_status_id_and_uri", unique: true, where: "(uri IS NOT NULL)"
   end
 
   create_table "tags", force: :cascade do |t|
