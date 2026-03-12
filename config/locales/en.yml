@@ -1415,6 +1415,13 @@ en:
     basic_information: Basic information
     hint_html: "<strong>Customize what people see on your public profile and next to your posts.</strong> Other people are more likely to follow you back and interact with you when you have a filled out profile and a profile picture."
     other: Other
+  email_subscription_mailer:
+    confirmation:
+      action: Yes, I want to subscribe
+      instructions_to_confirm: Please confirm that you would like to receive @%{name}@%{domain}'s new posts on Mastodon by e-mail. You can unsubscribe at any time.
+      instructions_to_ignore: If you didn't subscribe to this account or you're not sure why you received this email, you can delete it. You will not be subscribed if you don't click on the link above.
+      subject: Confirm your subscription to @%{name}@%{domain}
+      title: Confirm your subscription
   emoji_styles:
     auto: Auto
     native: Native
@@ -1649,21 +1656,6 @@ en:
     failed_sign_in_html: Failed sign-in attempt with %{method} from %{ip} (%{browser})
     successful_sign_in_html: Successful sign-in with %{method} from %{ip} (%{browser})
     title: Authentication history
-  mail_subscriptions:
-    unsubscribe:
-      action: Yes, unsubscribe
-      complete: Unsubscribed
-      confirmation_html: Are you sure you want to unsubscribe from receiving %{type} for Mastodon on %{domain} to your email at %{email}? You can always re-subscribe from your <a href="%{settings_path}">email notification settings</a>.
-      emails:
-        notification_emails:
-          favourite: favorite notification emails
-          follow: follow notification emails
-          follow_request: follow request emails
-          mention: mention notification emails
-          reblog: boost notification emails
-      resubscribe_html: If you've unsubscribed by mistake, you can re-subscribe from your <a href="%{settings_path}">email notification settings</a>.
-      success_html: You'll no longer receive %{type} for Mastodon on %{domain} to your email at %{email}.
-      title: Unsubscribe
   media_attachments:
     validations:
       images_and_video: Cannot attach a video to a post that already contains images
@@ -2065,6 +2057,21 @@ en:
     resume_app_authorization: Resume application authorization
     role_requirement: "%{domain} requires you to set up Two-Factor Authentication before you can use Mastodon."
     webauthn: Security keys
+  unsubscriptions:
+    action: Yes, unsubscribe
+    complete: Unsubscribed
+    confirmation_for_subscription_html: Are you sure you want to unsubscribe from receiving %{name}'s posts by email at %{email}? You can always re-subscribe on their profile later.
+    confirmation_html: Are you sure you want to unsubscribe from receiving %{type} for Mastodon on %{domain} to your email at %{email}? You can always re-subscribe from your <a href="%{settings_path}">email notification settings</a>.
+    emails:
+      notification_emails:
+        favourite: favorite notification emails
+        follow: follow notification emails
+        follow_request: follow request emails
+        mention: mention notification emails
+        reblog: boost notification emails
+    resubscribe_html: If you've unsubscribed by mistake, you can re-subscribe from your <a href="%{settings_path}">email notification settings</a>.
+    success_html: You'll no longer receive %{type} for Mastodon on %{domain} to your email at %{email}.
+    title: Unsubscribe
   user_mailer:
     announcement_published:
       description: 'The administrators of %{domain} are making an announcement:'

@@ -1,11 +1,11 @@
 # frozen_string_literal: true
 
-class MailSubscriptionsController < ApplicationController
+class UnsubscriptionsController < ApplicationController
   layout 'auth'
 
   skip_before_action :require_functional!
 
-  before_action :set_user
+  before_action :set_recipient
   before_action :set_type
 
   protect_from_forgery with: :null_session
@@ -13,15 +13,20 @@ class MailSubscriptionsController < ApplicationController
   def show; end
 
   def create
-    @user.settings[email_type_from_param] = false
-    @user.save!
+    case @recipient.class
+    when User
+      @recipient.settings[@type] = false if @type.present?
+      @recipient.save!
+    when EmailSubscription
+      @recipient.destroy!
+    end
   end
 
   private
 
-  def set_user
-    @user = GlobalID::Locator.locate_signed(params[:token], for: 'unsubscribe')
-    not_found unless @user
+  def set_recipient
+    @recipient = GlobalID::Locator.locate_signed(params[:token], for: 'unsubscribe')
+    not_found unless @recipient
   end
 
   def set_type
@@ -32,8 +37,6 @@ class MailSubscriptionsController < ApplicationController
     case params[:type]
     when 'follow', 'reblog', 'favourite', 'mention', 'follow_request'
       "notification_emails.#{params[:type]}"
-    else
-      not_found
     end
   end
 end

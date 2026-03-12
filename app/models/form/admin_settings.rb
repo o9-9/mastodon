@@ -45,6 +45,7 @@ class Form::AdminSettings
     remote_topic_feed_access
     landing_page
     wrapstodon
+    email_subscriptions
   ).freeze
 
   INTEGER_KEYS = %i(
@@ -68,6 +69,7 @@ class Form::AdminSettings
     captcha_enabled
     authorized_fetch
     wrapstodon
+    email_subscriptions
   ).freeze
 
   UPLOAD_KEYS = %i(

@@ -1,0 +1,9 @@
+<%= t '.title' %>
+
+===
+
+<%= t '.instructions_to_confirm', name: @subscription.account.username, domain: @instance %>
+
+=> <%= root_url(confirmation_token: @subscription.confirmation_token) %>
+
+<%= t('.instructions_to_ignore') %>

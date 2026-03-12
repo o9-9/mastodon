@@ -117,5 +117,12 @@
               as: :boolean,
               wrapper: :with_label
 
+  %h4= t('admin.settings.discovery.email_subscriptions')
+
+  .fields-group
+    = f.input :email_subscriptions,
+              as: :boolean,
+              wrapper: :with_label
+
   .actions
     = f.button :button, t('generic.save_changes'), type: :submit
